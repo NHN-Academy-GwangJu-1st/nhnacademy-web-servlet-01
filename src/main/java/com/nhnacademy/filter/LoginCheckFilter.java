@@ -41,7 +41,6 @@ public class LoginCheckFilter implements Filter {
             } else {
                 ((HttpServletResponse) response).sendRedirect("/login.html");
             }
-
         } else {
             // 세션 있으면
             chain.doFilter(request, response);

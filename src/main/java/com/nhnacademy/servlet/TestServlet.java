@@ -20,7 +20,7 @@ public class TestServlet extends HttpServlet {
 
         Integer counter = Optional.ofNullable((Integer) getServletContext().getAttribute("counter"))
                 .orElse(0);
-        getServletContext().setAttribute("counter", ++counter);
+//        getServletContext().setAttribute("counter", ++counter);
 
         resp.getWriter().println(counter);
 
