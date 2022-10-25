@@ -2,6 +2,8 @@ package com.nhnacademy.servlet;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,6 +11,10 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Objects;
 
+@WebServlet(name = "loginServlet", urlPatterns = "/login", initParams = {
+        @WebInitParam(name= "id", value= "admin"),
+        @WebInitParam(name = "password", value = "1234")
+})
 public class SessionLoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

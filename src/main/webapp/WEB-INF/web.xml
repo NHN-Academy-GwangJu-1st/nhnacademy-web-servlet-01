@@ -6,25 +6,25 @@
 
 
     <!-- context-param-->
-    <context-param>
-        <param-name>url</param-name>
-        <param-value>https://nhnacademy.com/</param-value>
-    </context-param>
+<!--    <context-param>-->
+<!--        <param-name>url</param-name>-->
+<!--        <param-value>https://nhnacademy.com/</param-value>-->
+<!--    </context-param>-->
 
-    <context-param>
-        <param-name>counterFileName</param-name>
-        <param-value>counter.dat</param-value>
-    </context-param>
+<!--    <context-param>-->
+<!--        <param-name>counterFileName</param-name>-->
+<!--        <param-value>counter.dat</param-value>-->
+<!--    </context-param>-->
 
     <!-- filter -->
-    <filter>
-        <filter-name>characterEncodingFilter</filter-name>
-        <filter-class>com.nhnacademy.filter.CharacterEncodingFilter</filter-class>
-        <init-param>
-            <param-name>encoding</param-name>
-            <param-value>UTF-8</param-value>
-        </init-param>
-    </filter>
+<!--    <filter>-->
+<!--        <filter-name>characterEncodingFilter</filter-name>-->
+<!--        <filter-class>com.nhnacademy.filter.CharacterEncodingFilter</filter-class>-->
+<!--        <init-param>-->
+<!--            <param-name>encoding</param-name>-->
+<!--            <param-value>UTF-8</param-value>-->
+<!--        </init-param>-->
+<!--    </filter>-->
 
     <filter-mapping>
         <filter-name>characterEncodingFilter</filter-name>
@@ -42,6 +42,9 @@
                 /index.html     <!-- welcome page -->
                 /   <!-- root -->
                 /test
+                /fileUpload.html
+                /upload
+                /download
             </param-value>
         </init-param>
     </filter>
@@ -196,23 +199,23 @@
         <url-pattern>/cookie-test/*</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>sessionLoginServlet</servlet-name>
-        <servlet-class>com.nhnacademy.servlet.SessionLoginServlet</servlet-class>
-        <init-param>
-            <param-name>id</param-name>
-            <param-value>myeong</param-value>
-        </init-param>
-        <init-param>
-            <param-name>password</param-name>
-            <param-value>1234</param-value>
-        </init-param>
-    </servlet>
+<!--    <servlet>-->
+<!--        <servlet-name>sessionLoginServlet</servlet-name>-->
+<!--        <servlet-class>com.nhnacademy.servlet.SessionLoginServlet</servlet-class>-->
+<!--        <init-param>-->
+<!--            <param-name>id</param-name>-->
+<!--            <param-value>myeong</param-value>-->
+<!--        </init-param>-->
+<!--        <init-param>-->
+<!--            <param-name>password</param-name>-->
+<!--            <param-value>1234</param-value>-->
+<!--        </init-param>-->
+<!--    </servlet>-->
 
-    <servlet-mapping>
-        <servlet-name>sessionLoginServlet</servlet-name>
-        <url-pattern>/login</url-pattern>
-    </servlet-mapping>
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>sessionLoginServlet</servlet-name>-->
+<!--        <url-pattern>/login</url-pattern>-->
+<!--    </servlet-mapping>-->
 
 
     <servlet>
@@ -224,6 +227,27 @@
         <servlet-name>sessionLogoutServlet</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
+
+<!--    <servlet>-->
+<!--        <servlet-name>fileUploadServlet</servlet-name>-->
+<!--        <servlet-class>com.nhnacademy.servlet.FileUploadServlet</servlet-class>-->
+<!--    </servlet>-->
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>fileUploadServlet</servlet-name>-->
+<!--        <url-pattern>/upload</url-pattern>-->
+<!--    </servlet-mapping>-->
+    
+    <servlet>
+        <servlet-name>fileDownloadServlet</servlet-name>
+        <servlet-class>com.nhnacademy.servlet.FileDownloadServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>fileDownloadServlet</servlet-name>
+        <url-pattern>/download</url-pattern>
+    </servlet-mapping>
+
 
 
 
