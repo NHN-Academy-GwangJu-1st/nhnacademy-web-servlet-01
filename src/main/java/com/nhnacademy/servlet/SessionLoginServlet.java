@@ -1,5 +1,6 @@
 package com.nhnacademy.servlet;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -33,13 +34,17 @@ public class SessionLoginServlet extends HttpServlet {
         String id = req.getParameter("id");
         String password = req.getParameter("password");
 
+        RequestDispatcher rd = req.getRequestDispatcher("/login");
         if (initId.equals(id) && initPassword.equals(password)) {
 
             HttpSession session = req.getSession();
             session.setAttribute("id", id);
-            resp.sendRedirect("/login");
+
+//            resp.sendRedirect("/login");
+            rd.forward(req, resp);
         } else {
-            resp.sendRedirect("/login");
+//            resp.sendRedirect("/login");
+            rd.forward(req, resp);
         }
 
     }
@@ -50,7 +55,9 @@ public class SessionLoginServlet extends HttpServlet {
         HttpSession session = req.getSession(false);
 
         if (Objects.isNull(session)) {
-            resp.sendRedirect("/login.html");
+//            resp.sendRedirect("/login.html");
+            RequestDispatcher rd = req.getRequestDispatcher("/login.html");
+            rd.forward(req, resp);
         } else {
             resp.setContentType("text/html");
             resp.getWriter().println("login is Success!!");
