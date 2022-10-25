@@ -1,5 +1,6 @@
 package com.nhnacademy.servlet;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,10 @@ public class SessionLogoutServlet extends HttpServlet {
         if (Objects.nonNull(session)) {
             session.invalidate();
         }
-        resp.sendRedirect("/login.html");
+
+        RequestDispatcher rd = req.getRequestDispatcher("/login.html");
+
+        rd.forward(req, resp);
+//        resp.sendRedirect("/login.html");
     }
 }

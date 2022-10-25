@@ -34,16 +34,21 @@ public class SessionLoginServlet extends HttpServlet {
         String id = req.getParameter("id");
         String password = req.getParameter("password");
 
-        RequestDispatcher rd = req.getRequestDispatcher("/login");
         if (initId.equals(id) && initPassword.equals(password)) {
 
             HttpSession session = req.getSession();
             session.setAttribute("id", id);
 
-//            resp.sendRedirect("/login");
-            rd.forward(req, resp);
+            resp.sendRedirect("/login");
+
+            /* POST 요청이 계속 들어와서 500 error발생 */
+            /* 이 요청을 끝내고 새로운 요청 ex) POST -> GET 일 경우는 resp.sendRedirect가 맞음 */
+
+//            RequestDispatcher rd = req.getRequestDispatcher("/login");
+//            rd.forward(req, resp);
         } else {
-//            resp.sendRedirect("/login");
+//            resp.sendRedirect("/login.html");
+            RequestDispatcher rd = req.getRequestDispatcher("/login.html");
             rd.forward(req, resp);
         }
 
